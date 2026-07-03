@@ -117,7 +117,7 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
   display:flex;align-items:center;justify-content:center;
   width:44px;height:44px;border-radius:50%;
   background:none;border:1px solid var(--line);color:var(--white);
-  cursor:pointer;transition:border-color .25s ease,color .25s ease;
+  cursor:pointer;
   margin-right:8px;
 }
 .theme-toggle:hover{border-color:var(--green);color:var(--green);}
@@ -128,7 +128,7 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
 
 .burger{display:none;flex-direction:column;gap:5px;justify-content:center;align-items:center;cursor:pointer;background:none;border:none;z-index:250;width:44px;height:44px;padding:0;}
 .burger,.btn,.nav-cta,nav a,.wa-float,.m-item,.card,.check-item{cursor:pointer;}
-.burger span{width:24px;height:2px;background:var(--white);display:block;transition:transform .25s ease, opacity .25s ease;}
+.burger span{width:24px;height:2px;background:var(--white);display:block;}
 
 /* ===== magnetic buttons ===== */
 .btn{
@@ -390,9 +390,8 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;}
 .wa-float{
   position:fixed;bottom:28px;right:28px;z-index:190;width:58px;height:58px;border-radius:50%;
   background:#25D366;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);transition:transform .3s var(--ease);
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
-.wa-float:hover{transform:scale(1.1);}
 .wa-float svg{width:28px;height:28px;fill:#070707;}
 
 /* Page hero (non-home) */
@@ -405,7 +404,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;}
 .client-strip span{font-family:'Poppins',sans-serif;font-size:1rem;color:var(--grey);letter-spacing:0.02em;}
 
 @media (max-width:900px){
-  nav{position:fixed;top:0;right:-100%;width:78%;max-width:320px;height:100vh;height:100dvh;overflow-y:auto;background:var(--surface);flex-direction:column;padding:110px 34px;transition:right .35s var(--ease);z-index:220;border-left:1px solid var(--line);}
+  nav{position:fixed;top:0;right:-100%;width:78%;max-width:320px;height:100vh;height:100dvh;overflow-y:auto;background:var(--surface);flex-direction:column;padding:110px 34px;z-index:220;border-left:1px solid var(--line);}
   nav.open{right:0;}
   nav ul{flex-direction:column;gap:6px;}
   nav ul li a{display:flex;align-items:center;min-height:44px;}
