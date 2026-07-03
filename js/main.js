@@ -205,8 +205,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ---- Magnetic buttons ---- */
+  /* Touch devices synthesize mouseover/mousemove/mousedown/click from every
+     tap, but never fire mouseleave — so on phones these handlers shoved the
+     button toward the tap point and left it stuck there. Gate to devices
+     with a real hover-capable pointer. */
+  var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   document.querySelectorAll('.btn').forEach(function(btn){
-    if (reduceMotion) return;
+    if (reduceMotion || !canHover) return;
     btn.addEventListener('mousemove', function(e){
       var r = btn.getBoundingClientRect();
       var x = e.clientX - r.left - r.width/2;
@@ -225,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ---- Card glow follow + tilt physics ---- */
   document.querySelectorAll('.card').forEach(function(card){
-    if (reduceMotion) return;
+    if (reduceMotion || !canHover) return;
     card.addEventListener('mousemove', function(e){
       var r = card.getBoundingClientRect();
       var mx = e.clientX - r.left, my = e.clientY - r.top;

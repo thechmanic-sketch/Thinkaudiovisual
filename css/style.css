@@ -89,14 +89,17 @@ h1,h2,h3,.display{
 @keyframes sweep{0%{left:-10%;}50%{left:90%;}100%{left:-10%;}}
 
 /* ===== Header ===== */
+/* No backdrop-filter here: a blur on a fixed header forces a full backdrop
+   repaint every scrolled frame on mobile (the header visibly lags/jitters),
+   and in several engines it also creates a containing block that captures
+   the fixed nav drawer inside the header's box. Solid-ish rgba instead. */
 header{
   position:fixed;top:0;left:0;right:0;z-index:200;
-  background:rgba(var(--bg-rgb),0.7);
-  backdrop-filter:blur(14px);
+  background:rgba(var(--bg-rgb),0.88);
   border-bottom:1px solid transparent;
   transition:border-color .3s ease, background .3s ease;
 }
-header.scrolled{border-bottom-color:var(--line);background:rgba(var(--bg-rgb),0.92);}
+header.scrolled{border-bottom-color:var(--line);background:rgba(var(--bg-rgb),0.97);}
 .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;max-width:1240px;margin:0 auto;}
 .nav-actions{display:flex;align-items:center;}
 .logo-mark{display:flex;align-items:center;}
@@ -391,6 +394,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;}
   position:fixed;bottom:28px;right:28px;z-index:190;width:58px;height:58px;border-radius:50%;
   background:#25D366;display:flex;align-items:center;justify-content:center;
   box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  transform:translateZ(0);/* own compositor layer: stops repaint jitter during scroll */
 }
 .wa-float svg{width:28px;height:28px;fill:#070707;}
 
@@ -404,7 +408,10 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;}
 .client-strip span{font-family:'Poppins',sans-serif;font-size:1rem;color:var(--grey);letter-spacing:0.02em;}
 
 @media (max-width:900px){
-  nav{position:fixed;top:0;right:-100%;width:78%;max-width:320px;height:100vh;height:100dvh;overflow-y:auto;background:var(--surface);flex-direction:column;padding:110px 34px;z-index:220;border-left:1px solid var(--line);}
+  /* top+bottom anchoring instead of height:100dvh — dvh is *dynamic* and
+     resizes live as the phone's toolbar collapses/expands, which made the
+     open drawer visibly stretch and shrink while touching the screen. */
+  nav{position:fixed;top:0;bottom:0;right:-100%;width:78%;max-width:320px;overflow-y:auto;overscroll-behavior:contain;background:var(--surface);flex-direction:column;padding:110px 34px;z-index:220;border-left:1px solid var(--line);}
   nav.open{right:0;}
   nav ul{flex-direction:column;gap:6px;}
   nav ul li a{display:flex;align-items:center;min-height:44px;}
