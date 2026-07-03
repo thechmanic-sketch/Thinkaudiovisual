@@ -249,9 +249,9 @@ section{padding:130px 0;}
 .card li::before{content:"";position:absolute;left:0;top:14px;width:6px;height:1px;background:var(--green);}
 
 /* ===== Stats / counters ===== */
-.stat-strip{display:flex;justify-content:space-between;flex-wrap:wrap;gap:36px;padding:0;}
-.stat{flex:1;min-width:160px;}
-.stat h2{font-family:'Poppins',sans-serif;font-size:4.2rem;display:block;font-weight:900;letter-spacing:-0.01em;color:var(--green);}
+.stat-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 36px;padding:0;}
+.stat{min-width:0;}
+.stat h2{font-family:'Poppins',sans-serif;font-size:200px;display:block;font-weight:900;letter-spacing:-0.01em;color:var(--green);}
 
 /* ===== Glossy gradient tiles (rotating ring accent) ===== */
 .tile-ring{position:relative;height:150px;display:flex;align-items:center;justify-content:center;}
@@ -284,7 +284,7 @@ section{padding:130px 0;}
 
 /* ===== Stronger reveal: scale + rotate (used for hero-adjacent, tile moments) ===== */
 /* reveal-pop initial state defined near top; animation now handled by GSAP in js/main.js */
-.stat span{font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);}
+.stat > span{font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);}
 
 /* ===== Timeline (Why choose us) ===== */
 .timeline{border-top:1px solid var(--line);}
@@ -428,9 +428,8 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;}
   .footer-grid{grid-template-columns:1fr;}
   .masonry{grid-template-columns:1fr;}
   section{padding:88px 0;}
-  .stat-strip{gap:28px;justify-content:center;text-align:center;}
-  .stat{flex:0 0 100%;}
-  .stat h2{font-size:3.2rem;}
+  .stat-strip{grid-template-columns:1fr;gap:28px;text-align:center;}
+  .stat h2{font-size:150px;color:var(--green);}
 }
 
 @media (prefers-reduced-motion:reduce){
