@@ -165,7 +165,7 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
 /* ===== Hero ===== */
 .hero{
   position:relative;min-height:100vh;display:flex;align-items:flex-end;
-  padding:140px 0 64px;overflow:hidden;
+  padding:140px 0 24px;overflow:hidden;
 }
 .hero-bg{
   position:absolute;inset:0;z-index:0;
