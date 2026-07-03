@@ -4,8 +4,17 @@ document.addEventListener('DOMContentLoaded', function () {
   var burger = document.querySelector('.burger');
   var nav = document.querySelector('nav');
   var overlay = document.querySelector('.nav-overlay');
-  function closeNav(){ nav.classList.remove('open'); overlay.classList.remove('open'); }
-  function toggleNav(){ nav.classList.toggle('open'); overlay.classList.toggle('open'); }
+  function setBurgerState(open){
+    if (!burger) return;
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  function closeNav(){ nav.classList.remove('open'); overlay.classList.remove('open'); setBurgerState(false); }
+  function toggleNav(){
+    var open = nav.classList.toggle('open');
+    overlay.classList.toggle('open', open);
+    setBurgerState(open);
+  }
   if (burger) burger.addEventListener('click', toggleNav);
   if (overlay) overlay.addEventListener('click', closeNav);
   document.querySelectorAll('nav a').forEach(function(a){ a.addEventListener('click', closeNav); });
