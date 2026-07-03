@@ -281,6 +281,7 @@ section{padding:130px 0;}
 .grad-text{
   background:var(--gradient-1);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
 }
+.accent-green{color:var(--green);}
 
 /* ===== Stronger reveal: scale + rotate (used for hero-adjacent, tile moments) ===== */
 /* reveal-pop initial state defined near top; animation now handled by GSAP in js/main.js */
