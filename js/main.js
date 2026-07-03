@@ -19,6 +19,26 @@ document.addEventListener('DOMContentLoaded', function () {
   if (overlay) overlay.addEventListener('click', closeNav);
   document.querySelectorAll('nav a').forEach(function(a){ a.addEventListener('click', closeNav); });
 
+  /* ---- Theme toggle (dark/light) ---- */
+  var themeToggle = document.querySelector('.theme-toggle');
+  var root = document.documentElement;
+  function setThemeButtonState(theme){
+    if (!themeToggle) return;
+    var isLight = theme === 'light';
+    themeToggle.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+    themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+  }
+  setThemeButtonState(root.getAttribute('data-theme') || 'dark');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function(){
+      var current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      var next = current === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      setThemeButtonState(next);
+    });
+  }
+
   /* ---- Header scroll state ---- */
   var header = document.querySelector('header');
   function onScroll(){
