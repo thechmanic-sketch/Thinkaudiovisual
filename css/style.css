@@ -322,7 +322,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .form-note{font-size:0.8rem;color:var(--grey);margin-top:16px;}
 .form-note a{color:var(--green);}
 .check-group{display:flex;flex-wrap:wrap;gap:10px;}
-.check-item{display:flex;align-items:center;gap:8px;border:1px solid var(--line);padding:10px 16px;border-radius:999px;font-size:0.85rem;cursor:pointer;transition:border-color .2s ease;}
+.check-item{display:flex;align-items:center;gap:8px;border:1px solid var(--line);padding:12px 16px;border-radius:999px;font-size:0.85rem;cursor:pointer;transition:border-color .2s ease;min-height:44px;}
 .check-item:has(input:checked){border-color:var(--green);color:var(--green);}
 .check-item input{width:auto;}
 
@@ -358,7 +358,8 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;}
 @media (max-width:900px){
   nav{position:fixed;top:0;right:-100%;width:78%;max-width:320px;height:100vh;background:var(--surface);flex-direction:column;padding:110px 34px;transition:right .35s var(--ease);z-index:220;border-left:1px solid var(--line);}
   nav.open{right:0;}
-  nav ul{flex-direction:column;gap:28px;}
+  nav ul{flex-direction:column;gap:6px;}
+  nav ul li a{display:flex;align-items:center;min-height:44px;}
   .burger{display:flex;}
   .nav-cta{display:inline-block;margin-top:12px;}
   .grid-3{grid-template-columns:1fr;}
