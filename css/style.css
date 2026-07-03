@@ -176,12 +176,12 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
 }
 .hero-content{position:relative;z-index:2;max-width:1180px;width:100%;}
 .hero-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
-.hero-logo-wrap{display:flex;justify-content:center;}
-.hero-logo{width:100%;max-width:340px;height:auto;border-radius:var(--radius);}
+.hero-logo-wrap{display:flex;justify-content:center;align-items:center;position:relative;--eq-r:195px;}
+.hero-logo{width:100%;max-width:340px;height:auto;border-radius:var(--radius);position:relative;z-index:2;}
 
-/* Logo wordmark is a fixed white PNG — dark backdrop keeps it legible in both themes, plus an ambient audio-pulse glow */
-.logo-mark img,.hero-logo{background:#0B0B0C;animation:logo-pulse 3.2s ease-in-out infinite;}
-.logo-mark img{padding:6px 12px;border-radius:10px;}
+/* Logo wordmark is a fixed white PNG — dark backdrop keeps it legible in both themes */
+.logo-mark img,.hero-logo{background:#0B0B0C;}
+.logo-mark img{padding:6px 12px;border-radius:10px;animation:logo-pulse 3.2s ease-in-out infinite;}
 .hero-logo{padding:24px;}
 @keyframes logo-pulse{
   0%,100%{box-shadow:0 0 0 0 rgba(46,216,102,0.25);}
@@ -190,6 +190,23 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
 .logo-mark{transition:transform .25s var(--ease);}
 .logo-mark:hover{transform:translateY(-2px) scale(1.03);}
 .logo-mark:hover img{box-shadow:0 0 24px -2px rgba(46,216,102,0.5);}
+
+/* ===== Equalizer ring around the hero logo ===== */
+.logo-eq{position:absolute;top:50%;left:50%;width:0;height:0;transform:rotate(var(--a));z-index:1;}
+.logo-eq i{
+  display:block;position:absolute;left:-1.5px;top:calc(var(--eq-r) * -1);
+  width:3px;height:16px;border-radius:2px;background:var(--green);
+  transform-origin:center bottom;opacity:0.6;
+  animation:eq-bar 1.3s ease-in-out infinite;animation-delay:var(--d);
+}
+@keyframes eq-bar{
+  0%,100%{transform:scaleY(0.45);opacity:0.45;}
+  50%{transform:scaleY(1.7);opacity:1;}
+}
+@media (max-width:900px){
+  .hero-logo-wrap{--eq-r:112px;}
+  .logo-eq i{height:11px;}
+}
 .hero-text{max-width:560px;}
 .hero .waveform{margin-bottom:22px;}
 .hero h1{font-size:clamp(2.6rem,6.6vw,5.4rem);margin-bottom:22px;}
