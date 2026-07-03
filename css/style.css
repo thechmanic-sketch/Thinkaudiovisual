@@ -138,10 +138,10 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
   transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .3s ease, color .3s ease;
   position:relative;
 }
-.btn-primary{background:var(--gradient-1);color:var(--on-accent);font-weight:700;position:relative;overflow:hidden;}
+.btn-primary{background:var(--green);color:var(--on-accent);font-weight:700;position:relative;overflow:hidden;}
 .btn-primary::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.35),transparent);transform:translateX(-120%);transition:transform .6s ease;}
 .btn-primary:hover::before{transform:translateX(120%);}
-.btn-primary:hover{box-shadow:0 0 46px -4px rgba(139,92,246,0.55);}
+.btn-primary:hover{box-shadow:0 0 46px -4px rgba(46,216,102,0.55);}
 .btn-outline{border:1px solid var(--line);color:var(--white);}
 .btn-outline:hover{border-color:var(--green);color:var(--green);}
 .btn-wa{background:#25D366;color:#070707;}
