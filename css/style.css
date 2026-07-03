@@ -439,5 +439,5 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;}
   .reveal,.reveal-stagger>*{opacity:1!important;transform:none!important;}
 }
 
-.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:210;}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:199;}
 .nav-overlay.open{display:block;}
