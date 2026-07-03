@@ -10,12 +10,12 @@
   --surface:#101013;
   --surface-rgb:16,16,19;
   --surface-2:#18181d;
-  --green:#2ED866;
-  --green-soft:rgba(46,216,102,0.14);
+  --green:#3BD02A;
+  --green-soft:rgba(59,208,42,0.14);
   --violet:#8B5CF6;
   --pink:#F0578A;
   --amber:#FFB23E;
-  --gradient-1:linear-gradient(135deg,#2ED866 0%,#22B8CF 50%,#8B5CF6 100%);
+  --gradient-1:linear-gradient(135deg,#3BD02A 0%,#22B8CF 50%,#8B5CF6 100%);
   --gradient-2:linear-gradient(135deg,#8B5CF6 0%,#F0578A 100%);
   --white:#F5F5F3;
   --grey:#8C8C90;
@@ -33,8 +33,8 @@
   --surface:#FFFFFF;
   --surface-rgb:255,255,255;
   --surface-2:#F0F0EE;
-  --green:#159A4A;
-  --green-soft:rgba(21,154,74,0.12);
+  --green:#1D6815;
+  --green-soft:rgba(29,104,21,0.12);
   --white:#101012;
   --grey:#55555B;
   --line:rgba(10,10,10,0.12);
@@ -155,7 +155,7 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
 .btn-primary{background:var(--green);color:var(--on-accent);font-weight:700;position:relative;overflow:hidden;}
 .btn-primary::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.35),transparent);transform:translateX(-120%);transition:transform .6s ease;}
 .btn-primary:hover::before{transform:translateX(120%);}
-.btn-primary:hover{box-shadow:0 0 46px -4px rgba(46,216,102,0.55);}
+.btn-primary:hover{box-shadow:0 0 46px -4px rgba(59,208,42,0.55);}
 .btn-outline{border:1px solid var(--line);color:var(--white);}
 .btn-outline:hover{border-color:var(--green);color:var(--green);}
 .btn-wa{background:#25D366;color:#070707;}
@@ -269,7 +269,7 @@ section{padding:130px 0;}
   background:linear-gradient(135deg, rgba(255,255,255,0.35), transparent 45%);
 }
 .g-tile.t2{background:var(--gradient-2);width:130px;height:160px;animation-delay:-2.3s;}
-.g-tile.t3{background:linear-gradient(135deg,#22B8CF,#2ED866);width:110px;height:140px;animation-delay:-4.6s;}
+.g-tile.t3{background:linear-gradient(135deg,#22B8CF,#3BD02A);width:110px;height:140px;animation-delay:-4.6s;}
 @keyframes tile-float{
   0%,100%{transform:translate(-90px,-30px) rotate(-8deg);}
   33%{transform:translate(70px,20px) rotate(6deg);}
@@ -280,7 +280,10 @@ section{padding:130px 0;}
 .grad-text{
   background:var(--gradient-1);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
 }
-.accent-green{color:var(--green);}
+.accent-green{color:#2DC50A;}
+/* #2DC50A only hits 2.3:1 contrast on white (fails even large-text AA at 3:1) —
+   fall back to the accessible dark green in light mode so this stays readable. */
+:root[data-theme="light"] .accent-green{color:var(--green);}
 
 /* ===== Stronger reveal: scale + rotate (used for hero-adjacent, tile moments) ===== */
 /* reveal-pop initial state defined near top; animation now handled by GSAP in js/main.js */
@@ -330,7 +333,7 @@ section{padding:130px 0;}
 }
 .cta-band::before{
   content:"";position:absolute;top:50%;left:50%;width:800px;height:800px;
-  background:conic-gradient(from 0deg, rgba(46,216,102,0.16), rgba(139,92,246,0.16), rgba(240,87,138,0.14), rgba(46,216,102,0.16));
+  background:conic-gradient(from 0deg, rgba(59,208,42,0.16), rgba(139,92,246,0.16), rgba(240,87,138,0.14), rgba(59,208,42,0.16));
   transform:translate(-50%,-50%);pointer-events:none;
   animation:spin-slow 18s linear infinite;
   filter:blur(60px);
