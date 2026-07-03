@@ -9,20 +9,21 @@ document.addEventListener('DOMContentLoaded', function () {
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   }
-  var lockedScrollY = 0;
+  /* Deliberately NOT using body{position:fixed} here: it removes body from
+     normal flow, which collapses document.documentElement.scrollHeight to
+     the viewport height. GSAP ScrollTrigger computes every scrub animation
+     as a pixel ratio against that height, so the collapse forces a
+     recalculation that snaps scroll-scrubbed effects (hero parallax, etc.)
+     to new values the instant the menu opens. overflow:hidden blocks
+     scrolling without touching document geometry, so ScrollTrigger's
+     tracked ranges stay untouched. */
   function lockScroll(){
-    lockedScrollY = window.scrollY;
-    document.body.style.position = 'fixed';
-    document.body.style.top = (-lockedScrollY) + 'px';
-    document.body.style.left = '0';
-    document.body.style.right = '0';
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
   }
   function unlockScroll(){
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.left = '';
-    document.body.style.right = '';
-    window.scrollTo(0, lockedScrollY);
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
   }
   function closeNav(){
     nav.classList.remove('open'); overlay.classList.remove('open'); setBurgerState(false);
