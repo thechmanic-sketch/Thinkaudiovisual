@@ -4,8 +4,17 @@ document.addEventListener('DOMContentLoaded', function () {
   var burger = document.querySelector('.burger');
   var nav = document.querySelector('nav');
   var overlay = document.querySelector('.nav-overlay');
-  function closeNav(){ nav.classList.remove('open'); overlay.classList.remove('open'); }
-  function toggleNav(){ nav.classList.toggle('open'); overlay.classList.toggle('open'); }
+  function setBurgerState(open){
+    if (!burger) return;
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  function closeNav(){ nav.classList.remove('open'); overlay.classList.remove('open'); setBurgerState(false); }
+  function toggleNav(){
+    var open = nav.classList.toggle('open');
+    overlay.classList.toggle('open', open);
+    setBurgerState(open);
+  }
   if (burger) burger.addEventListener('click', toggleNav);
   if (overlay) overlay.addEventListener('click', closeNav);
   document.querySelectorAll('nav a').forEach(function(a){ a.addEventListener('click', closeNav); });
@@ -18,6 +27,17 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   window.addEventListener('scroll', onScroll, { passive:true });
   onScroll();
+
+  /* ---- Scroll cue: click to advance ---- */
+  var scrollCue = document.querySelector('.scroll-cue');
+  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (scrollCue) {
+    scrollCue.addEventListener('click', function(){
+      var hero = scrollCue.closest('.hero');
+      var next = hero && hero.nextElementSibling;
+      if (next) next.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+    });
+  }
 
   var hasGSAP = (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined');
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -48,9 +68,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     gsap.utils.toArray('.reveal-stagger').forEach(function(group){
       var items = group.children;
+      var isGrid = group.classList.contains('masonry');
       gsap.fromTo(items,
-        { opacity:0, y:36 },
-        {
+        isGrid ? { opacity:0, y:16, scale:0.92 } : { opacity:0, y:36 },
+        isGrid ? {
+          opacity:1, y:0, scale:1, duration:0.4, ease:'back.out(1.4)',
+          stagger:{ each:0.06, from:'start', grid:'auto' },
+          scrollTrigger:{ trigger: group, start:'top 85%', toggleActions:'play none none none' }
+        } : {
           opacity:1, y:0, duration:0.85, ease:'power3.out', stagger:0.12,
           scrollTrigger:{ trigger: group, start:'top 85%', toggleActions:'play none none none' }
         }
@@ -73,6 +98,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
     });
+
+    /* ---- Scroll cue: gentle bounce, fades out as user scrolls past the hero ---- */
+    if (scrollCue) {
+      gsap.to(scrollCue, { y:8, duration:1.1, ease:'sine.inOut', yoyo:true, repeat:-1 });
+      gsap.to(scrollCue, {
+        opacity:0, ease:'none',
+        scrollTrigger:{ trigger: scrollCue.closest('.hero'), start:'top top', end:'25% top', scrub:true }
+      });
+    }
 
     /* ---- Hero: scroll-scrubbed parallax + zoom ---- */
     document.querySelectorAll('.hero-bg').forEach(function(bg){

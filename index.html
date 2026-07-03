@@ -6,6 +6,7 @@
 <title>Think Audio Visual | Stage, Sound &amp; Event Production — Durban</title>
 <meta name="description" content="Think Audio Visual delivers professional stage, sound, lighting and AV production for corporate, live and festival events across South Africa. Over 10 years of experience.">
 <link rel="stylesheet" href="css/style.css">
+<script>(function(){try{var t=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 </head>
 <body>
 
@@ -13,9 +14,9 @@
 <header>
   <div class="nav-wrap">
     <a href="index.html" class="logo-mark"><img src="images/logo.jpeg" alt="Think Audio Visual"> Think Audio Visual</a>
-    <nav>
+    <nav id="primary-nav">
       <ul>
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
@@ -24,7 +25,11 @@
         <li><a href="contact.html#booking" class="nav-cta">Get a Quote</a></li>
       </ul>
     </nav>
-    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="theme-toggle" aria-label="Switch to light mode" aria-pressed="false" type="button">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11Z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.5v-2m0 19v-2m7.5-7.5h2m-19 0h2m12.02-5.52 1.42-1.42M4.06 19.94l1.42-1.42m0-12.04L4.06 4.06m15.88 15.88-1.42-1.42M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"/></svg>
+    </button>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -39,10 +44,12 @@
       <a href="portfolio.html" class="btn btn-outline">View Our Work</a>
     </div>
   </div>
-  <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+  <button class="scroll-cue" type="button" aria-label="Scroll to next section">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
 </section>
 
-<section style="padding:70px 0;">
+<section style="padding:36px 0;">
   <div class="container">
     <div class="tile-ring reveal-pop">
       <div class="g-tile"></div>
@@ -123,7 +130,7 @@
       <div class="eyebrow">Recent Work</div>
       <h2>A few rooms we've run.</h2>
     </div>
-    <div class="masonry reveal">
+    <div class="masonry reveal-stagger">
       <div class="m-item"><img src="images/imgi_3_slider-img2.jpg" alt="Gala stage with blue draping and floral staging" loading="lazy"><div class="m-caption"><span class="tag">Corporate Gala</span><h4>Awards Evening Staging</h4></div></div>
       <div class="m-item"><img src="images/imgi_4_slider-img3.jpg" alt="Concert lighting rig with moving heads and haze" loading="lazy"><div class="m-caption"><span class="tag">Live Event</span><h4>Concert Lighting Rig</h4></div></div>
       <div class="m-item"><img src="images/imgi_7_page1-img7.jpg" alt="Marquee tent event seating" loading="lazy"><div class="m-caption"><span class="tag">Outdoor Event</span><h4>Marquee Tent Setup</h4></div></div>
