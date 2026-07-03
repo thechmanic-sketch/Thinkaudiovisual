@@ -251,10 +251,7 @@ section{padding:130px 0;}
 /* ===== Stats / counters ===== */
 .stat-strip{display:flex;justify-content:space-between;flex-wrap:wrap;gap:36px;padding:0;}
 .stat{flex:1;min-width:160px;}
-.stat h2{font-family:'Poppins',sans-serif;font-size:4.2rem;display:block;font-weight:900;letter-spacing:-0.01em;
-  background:var(--gradient-1);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  -webkit-text-stroke:1px rgba(255,255,255,0.12);
-}
+.stat h2{font-family:'Poppins',sans-serif;font-size:4.2rem;display:block;font-weight:900;letter-spacing:-0.01em;color:var(--green);}
 
 /* ===== Glossy gradient tiles (rotating ring accent) ===== */
 .tile-ring{position:relative;height:150px;display:flex;align-items:center;justify-content:center;}
