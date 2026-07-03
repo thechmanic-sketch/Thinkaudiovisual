@@ -111,8 +111,8 @@ header{
 }
 header.scrolled{border-bottom-color:var(--line);background:rgba(var(--bg-rgb),0.92);}
 .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;max-width:1240px;margin:0 auto;}
-.logo-mark{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;font-size:1.05rem;letter-spacing:-0.01em;}
-.logo-mark img{height:30px;width:auto;}
+.logo-mark{display:flex;align-items:center;}
+.logo-mark img{height:52px;width:auto;}
 nav ul{display:flex;gap:38px;}
 nav a{font-size:0.8rem;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;position:relative;padding:4px 0;color:var(--grey);transition:color .25s ease;}
 nav a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--green);transition:width 0.3s var(--ease);}
@@ -178,6 +178,10 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
 .hero-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
 .hero-logo-wrap{display:flex;justify-content:center;}
 .hero-logo{width:100%;max-width:340px;height:auto;border-radius:var(--radius);}
+
+/* Logo wordmark is a fixed white PNG — needs a dark backdrop to stay legible in light mode */
+:root[data-theme="light"] .logo-mark img{background:#0B0B0C;padding:6px 12px;border-radius:10px;}
+:root[data-theme="light"] .hero-logo{background:#0B0B0C;padding:24px;}
 .hero-text{max-width:560px;}
 .hero .waveform{margin-bottom:22px;}
 .hero h1{font-size:clamp(2.6rem,6.6vw,5.4rem);margin-bottom:22px;}
