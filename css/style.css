@@ -251,7 +251,7 @@ section{padding:130px 0;}
 /* ===== Stats / counters ===== */
 .stat-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 36px;padding:0;}
 .stat{min-width:0;}
-.stat h2{font-family:'Poppins',sans-serif;font-size:200px;display:block;font-weight:900;letter-spacing:-0.01em;color:var(--green);}
+.stat h2{font-family:'Poppins',sans-serif;font-size:120px;display:block;font-weight:900;letter-spacing:-0.01em;color:var(--green);}
 
 /* ===== Glossy gradient tiles (rotating ring accent) ===== */
 .tile-ring{position:relative;height:150px;display:flex;align-items:center;justify-content:center;}
@@ -429,7 +429,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;}
   .masonry{grid-template-columns:1fr;}
   section{padding:88px 0;}
   .stat-strip{grid-template-columns:1fr;gap:28px;text-align:center;}
-  .stat h2{font-size:150px;color:var(--green);}
+  .stat h2{font-size:80px;color:var(--green);}
 }
 
 @media (prefers-reduced-motion:reduce){
