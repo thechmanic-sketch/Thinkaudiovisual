@@ -177,12 +177,12 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
 .hero-content{position:relative;z-index:2;max-width:1180px;width:100%;}
 .hero-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
 .hero-logo-wrap{display:flex;justify-content:center;align-items:center;position:relative;--eq-r:195px;}
-.hero-logo{width:100%;max-width:340px;height:auto;border-radius:var(--radius);position:relative;z-index:2;}
+.hero-logo{width:100%;max-width:340px;height:auto;border-radius:50%;position:relative;z-index:2;}
 
-/* Logo wordmark is a fixed white PNG — dark backdrop keeps it legible in both themes */
-.logo-mark img,.hero-logo{background:#0B0B0C;}
-.logo-mark img{padding:6px 12px;border-radius:10px;animation:logo-pulse 3.2s ease-in-out infinite;}
-.hero-logo{padding:24px;}
+/* Logo wordmark is a fixed white PNG — circular dark backdrop keeps it legible and matches the radial equalizer ring */
+.logo-mark img,.hero-logo{background:#0B0B0C;border-radius:50%;}
+.logo-mark img{padding:9px;animation:logo-pulse 3.2s ease-in-out infinite;}
+.hero-logo{padding:30px;}
 @keyframes logo-pulse{
   0%,100%{box-shadow:0 0 0 0 rgba(46,216,102,0.25);}
   50%{box-shadow:0 0 0 14px rgba(46,216,102,0);}
