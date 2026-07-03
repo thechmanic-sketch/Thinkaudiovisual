@@ -179,7 +179,7 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
 .hero-content{position:relative;z-index:2;max-width:1180px;width:100%;}
 .hero-split{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:stretch;}
 .hero-logo-wrap{display:flex;}
-.hero-logo{height:100%;width:auto;max-width:520px;object-fit:contain;background:#0B0B0C;border-radius:24px;padding:28px;}
+.hero-logo{height:100%;width:auto;max-width:640px;object-fit:contain;background:#0B0B0C;border-radius:24px;padding:14px;}
 .hero-text{display:flex;flex-direction:column;justify-content:center;max-width:560px;}
 
 .hero h1{font-size:clamp(2.6rem,6.6vw,5.4rem);margin-bottom:22px;}
@@ -419,7 +419,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;}
   .quote-band{padding:36px 28px;}
   .t-row{grid-template-columns:44px 1fr;}
   .hero-split{grid-template-columns:1fr;justify-items:center;text-align:center;gap:24px;}
-  .hero-logo{height:auto;width:180px;max-width:180px;}
+  .hero-logo{height:auto;width:260px;max-width:260px;padding:10px;}
   .hero-text{max-width:100%;align-items:center;}
   .hero p{margin-left:auto;margin-right:auto;}
   .hero .btn-row{justify-content:center;}
