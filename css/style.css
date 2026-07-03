@@ -102,8 +102,19 @@ header{
 header.scrolled{border-bottom-color:var(--line);background:rgba(var(--bg-rgb),0.97);}
 .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;max-width:1240px;margin:0 auto;}
 .nav-actions{display:flex;align-items:center;}
-.logo-mark{display:flex;align-items:center;}
-.logo-mark img{height:52px;width:auto;}
+.logo-mark{display:flex;align-items:center;gap:4px;height:52px;transition:transform .25s var(--ease);}
+.logo-mark:hover{transform:scale(1.06);}
+.nav-waveform{display:flex;align-items:flex-end;gap:4px;height:26px;}
+.nav-waveform i{
+  display:block;width:3px;background:var(--green);border-radius:2px;
+  animation:nav-wf 1.4s ease-in-out infinite;
+}
+.nav-waveform i:nth-child(1){height:40%;animation-delay:0s;}
+.nav-waveform i:nth-child(2){height:100%;animation-delay:.15s;}
+.nav-waveform i:nth-child(3){height:65%;animation-delay:.3s;}
+.nav-waveform i:nth-child(4){height:85%;animation-delay:.45s;}
+.nav-waveform i:nth-child(5){height:50%;animation-delay:.6s;}
+@keyframes nav-wf{0%,100%{transform:scaleY(0.5);}50%{transform:scaleY(1);}}
 nav ul{display:flex;gap:38px;}
 nav a{font-size:0.8rem;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;position:relative;padding:4px 0;color:var(--grey);transition:color .25s ease;}
 nav a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--green);transition:width 0.3s var(--ease);}
@@ -168,27 +179,9 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
 .hero-content{position:relative;z-index:2;max-width:1180px;width:100%;}
 .hero-split{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:stretch;}
 .hero-logo-wrap{display:flex;}
-.hero-logo{height:100%;width:auto;max-width:380px;object-fit:contain;background:#0B0B0C;border-radius:24px;padding:28px;}
+.hero-logo{height:100%;width:auto;max-width:520px;object-fit:contain;background:#0B0B0C;border-radius:24px;padding:28px;}
 .hero-text{display:flex;flex-direction:column;justify-content:center;max-width:560px;}
 
-/* Logo wordmark is a fixed white PNG — circular dark backdrop keeps it legible in both themes */
-.logo-mark img{background:#0B0B0C;border-radius:50%;padding:9px;position:relative;z-index:2;}
-.logo-mark{transition:transform .25s var(--ease);position:relative;--eq-r:34px;}
-.logo-mark:hover{transform:translateY(-2px) scale(1.03);}
-.logo-mark:hover img{box-shadow:0 0 24px -2px rgba(46,216,102,0.5);}
-
-/* ===== Equalizer ring around the header logo ===== */
-.logo-eq{position:absolute;top:50%;left:50%;width:0;height:0;transform:rotate(var(--a));z-index:1;}
-.logo-eq i{
-  display:block;position:absolute;left:-1px;top:calc(var(--eq-r) * -1);
-  width:2px;height:8px;border-radius:2px;background:var(--green);
-  transform-origin:center bottom;opacity:0.6;
-  animation:eq-bar 1.3s ease-in-out infinite;animation-delay:var(--d);
-}
-@keyframes eq-bar{
-  0%,100%{transform:scaleY(0.45);opacity:0.45;}
-  50%{transform:scaleY(1.7);opacity:1;}
-}
 .hero h1{font-size:clamp(2.6rem,6.6vw,5.4rem);margin-bottom:22px;}
 .hero h1 .accent{color:var(--green);}
 .hero p{font-size:1.1rem;color:var(--hero-soft);max-width:560px;margin-bottom:38px;}
@@ -426,7 +419,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 30px;}
   .quote-band{padding:36px 28px;}
   .t-row{grid-template-columns:44px 1fr;}
   .hero-split{grid-template-columns:1fr;justify-items:center;text-align:center;gap:24px;}
-  .hero-logo{height:auto;width:140px;max-width:140px;}
+  .hero-logo{height:auto;width:180px;max-width:180px;}
   .hero-text{max-width:100%;align-items:center;}
   .hero p{margin-left:auto;margin-right:auto;}
   .hero .btn-row{justify-content:center;}
