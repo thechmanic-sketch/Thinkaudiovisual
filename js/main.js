@@ -9,11 +9,30 @@ document.addEventListener('DOMContentLoaded', function () {
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   }
-  function closeNav(){ nav.classList.remove('open'); overlay.classList.remove('open'); setBurgerState(false); }
+  var lockedScrollY = 0;
+  function lockScroll(){
+    lockedScrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = (-lockedScrollY) + 'px';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+  }
+  function unlockScroll(){
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    window.scrollTo(0, lockedScrollY);
+  }
+  function closeNav(){
+    nav.classList.remove('open'); overlay.classList.remove('open'); setBurgerState(false);
+    unlockScroll();
+  }
   function toggleNav(){
     var open = nav.classList.toggle('open');
     overlay.classList.toggle('open', open);
     setBurgerState(open);
+    if (open) lockScroll(); else unlockScroll();
   }
   if (burger) burger.addEventListener('click', toggleNav);
   if (overlay) overlay.addEventListener('click', closeNav);
