@@ -245,6 +245,10 @@ section{padding:130px 0;}
   transition:transform .45s var(--ease), border-color .35s ease, box-shadow .45s var(--ease);
   position:relative;overflow:hidden;
 }
+.card-img{
+  width:calc(100% + 64px);margin:-36px -32px 24px;
+  height:200px;object-fit:cover;display:block;
+}
 .card::before{
   content:"";position:absolute;inset:0;opacity:0;
   background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%), rgba(59,208,42,0.18), transparent 60%);
