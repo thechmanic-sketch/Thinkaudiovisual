@@ -223,6 +223,7 @@ section{padding:130px 0;}
   opacity:0.16;filter:grayscale(30%);
   will-change:transform;
 }
+:root[data-theme="light"] .section-bg-img{opacity:0.26;}
 .section-bg-img::after{content:"";}
 .section-bg-fade{
   position:absolute;inset:0;z-index:1;
@@ -230,6 +231,12 @@ section{padding:130px 0;}
 }
 .section-bg.alt-bg .section-bg-fade{
   background:linear-gradient(180deg, var(--surface) 0%, rgba(var(--surface-rgb),0.7) 18%, rgba(var(--surface-rgb),0.7) 82%, var(--surface) 100%);
+}
+:root[data-theme="light"] .section-bg-fade{
+  background:linear-gradient(180deg, var(--bg) 0%, rgba(var(--bg-rgb),0.3) 18%, rgba(var(--bg-rgb),0.3) 82%, var(--bg) 100%);
+}
+:root[data-theme="light"] .section-bg.alt-bg .section-bg-fade{
+  background:linear-gradient(180deg, var(--surface) 0%, rgba(var(--surface-rgb),0.35) 18%, rgba(var(--surface-rgb),0.35) 82%, var(--surface) 100%);
 }
 .section-bg > .container{position:relative;z-index:2;}
 
