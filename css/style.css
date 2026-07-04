@@ -247,7 +247,7 @@ section{padding:130px 0;}
 }
 .card-img{
   width:calc(100% + 64px);margin:-36px -32px 24px;
-  height:200px;object-fit:cover;display:block;
+  aspect-ratio:200/137;object-fit:cover;display:block;
 }
 .card::before{
   content:"";position:absolute;inset:0;opacity:0;
