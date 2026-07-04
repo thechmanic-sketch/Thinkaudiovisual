@@ -342,39 +342,39 @@ section{padding:130px 0;}
 .cta-band .btn-row{justify-content:center;position:relative;}
 
 /* ===== Pulsing speaker (CTA band accent) ===== */
-/* Rhythmic beat pattern over a 4s bar: 1 . . . 1-2 . . 1-2-3 . -- not a flat metronome */
+/* Rhythmic beat pattern over a 2.2s bar: 1 . 1-2 . 1-2-3 . -- snappier than the first pass */
 .cta-speaker{position:relative;width:64px;height:64px;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;}
-.cta-speaker svg{width:30px;height:30px;color:var(--green);position:relative;z-index:2;animation:speaker-thump 4s ease-in-out infinite;}
-.cta-speaker .pulse-ring{position:absolute;inset:0;border:2px solid var(--green);border-radius:50%;opacity:0;animation:ring-burst 4s ease-out infinite;}
+.cta-speaker svg{width:30px;height:30px;color:var(--green);position:relative;z-index:2;animation:speaker-thump 2.2s ease-in-out infinite;}
+.cta-speaker .pulse-ring{position:absolute;inset:0;border:2px solid var(--green);border-radius:50%;opacity:0;animation:ring-burst 2.2s ease-out infinite;}
 .cta-speaker .pulse-ring.b1{animation-delay:0s;}
-.cta-speaker .pulse-ring.b2a{animation-delay:1.2s;}
-.cta-speaker .pulse-ring.b2b{animation-delay:1.46s;}
-.cta-speaker .pulse-ring.b3a{animation-delay:2.62s;}
-.cta-speaker .pulse-ring.b3b{animation-delay:2.86s;}
-.cta-speaker .pulse-ring.b3c{animation-delay:3.1s;}
+.cta-speaker .pulse-ring.b2a{animation-delay:0.5s;}
+.cta-speaker .pulse-ring.b2b{animation-delay:0.65s;}
+.cta-speaker .pulse-ring.b3a{animation-delay:1.2s;}
+.cta-speaker .pulse-ring.b3b{animation-delay:1.35s;}
+.cta-speaker .pulse-ring.b3c{animation-delay:1.5s;}
 @keyframes ring-burst{
   0%{transform:scale(0.4);opacity:0.75;}
-  15%{transform:scale(1.5);opacity:0;}
+  25%{transform:scale(1.5);opacity:0;}
   100%{opacity:0;}
 }
 @keyframes speaker-thump{
   0%{transform:scale(1.16);}
-  2%{transform:scale(1);}
-  28%{transform:scale(1);}
-  30%{transform:scale(1.16);}
-  32%{transform:scale(1);}
-  34.5%{transform:scale(1);}
-  36.5%{transform:scale(1.16);}
-  38.5%{transform:scale(1);}
-  63.5%{transform:scale(1);}
-  65.5%{transform:scale(1.16);}
-  67.5%{transform:scale(1);}
-  69.5%{transform:scale(1);}
-  71.5%{transform:scale(1.16);}
-  73.5%{transform:scale(1);}
-  75.5%{transform:scale(1);}
-  77.5%{transform:scale(1.16);}
-  79.5%{transform:scale(1);}
+  4%{transform:scale(1);}
+  20.7%{transform:scale(1);}
+  22.7%{transform:scale(1.16);}
+  25.7%{transform:scale(1);}
+  27.5%{transform:scale(1);}
+  29.5%{transform:scale(1.16);}
+  33.5%{transform:scale(1);}
+  52.5%{transform:scale(1);}
+  54.5%{transform:scale(1.16);}
+  58.5%{transform:scale(1);}
+  59.4%{transform:scale(1);}
+  61.4%{transform:scale(1.16);}
+  65.4%{transform:scale(1);}
+  66.2%{transform:scale(1);}
+  68.2%{transform:scale(1.16);}
+  72.2%{transform:scale(1);}
   100%{transform:scale(1);}
 }
 
