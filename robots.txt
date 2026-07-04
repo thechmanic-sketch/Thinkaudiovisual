@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thechmanic-sketch.github.io/thinkaudiovisual/sitemap.xml

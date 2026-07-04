@@ -178,6 +178,10 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
   background-size:cover;background-position:center;
   will-change:transform;
 }
+.hero-bg-mixer{background-position:left center;}
+@media (max-width:900px){
+  .hero-bg-mixer{background-position:54% 63%;}
+}
 .hero-bg::after{
   content:"";position:absolute;inset:0;
   background:linear-gradient(180deg, rgba(var(--bg-rgb),0.65) 0%, rgba(var(--bg-rgb),0.65) 40%, rgba(var(--bg-rgb),1) 100%);
