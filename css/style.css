@@ -177,9 +177,9 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
   background:linear-gradient(180deg, rgba(var(--bg-rgb),0.65) 0%, rgba(var(--bg-rgb),0.65) 40%, rgba(var(--bg-rgb),1) 100%);
 }
 .hero-content{position:relative;z-index:2;max-width:1180px;width:100%;}
-.hero-split{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:stretch;}
-.hero-logo-wrap{display:flex;}
-.hero-logo{height:100%;width:auto;max-width:640px;object-fit:contain;background:#0B0B0C;border-radius:24px;padding:14px;}
+.hero-split{display:grid;grid-template-columns:auto 1fr;gap:72px;align-items:center;}
+.hero-logo-wrap{display:flex;justify-content:flex-start;align-items:center;}
+.hero-logo{width:100%;max-width:420px;height:auto;object-fit:contain;background:#0B0B0C;border-radius:24px;padding:14px;}
 .hero-text{display:flex;flex-direction:column;justify-content:center;max-width:560px;}
 
 .hero h1{font-size:clamp(2.6rem,6.6vw,5.4rem);margin-bottom:22px;}
