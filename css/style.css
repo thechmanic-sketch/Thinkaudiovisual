@@ -342,41 +342,41 @@ section{padding:130px 0;}
 .cta-band .btn-row{justify-content:center;position:relative;}
 
 /* ===== Pulsing speaker (CTA band accent) ===== */
-/* Rhythmic beat pattern at 125bpm (0.48s/beat) over a 5.28s bar:
-   1 . dodo . . dododo . . -- beat, skip 1, double, skip 2, triple, skip 2, loop */
+/* 125bpm, 4/4 bar = 1.92s. Beat 1: DO. Beat 2: DO-DO (8ths). Beat 3: DO-DO-DO
+   (triplets). Beat 4: rest. Thought in beats, not arbitrary percentages. */
 .cta-speaker{position:relative;width:64px;height:64px;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;}
-.cta-speaker svg{width:30px;height:30px;color:var(--green);position:relative;z-index:2;animation:speaker-thump 5.28s ease-in-out infinite;}
-.cta-speaker .pulse-ring{position:absolute;inset:0;border:2px solid var(--green);border-radius:50%;opacity:0;animation:ring-burst 5.28s ease-out infinite;}
+.cta-speaker svg{width:30px;height:30px;color:var(--green);position:relative;z-index:2;animation:heartbeat 1.92s linear infinite;}
+.cta-speaker .pulse-ring{position:absolute;inset:0;border:2px solid var(--green);border-radius:50%;opacity:0;animation:ring-burst 1.92s ease-out infinite;}
 .cta-speaker .pulse-ring.b1{animation-delay:0s;}
-.cta-speaker .pulse-ring.b2a{animation-delay:0.96s;}
-.cta-speaker .pulse-ring.b2b{animation-delay:1.44s;}
-.cta-speaker .pulse-ring.b3a{animation-delay:2.88s;}
-.cta-speaker .pulse-ring.b3b{animation-delay:3.36s;}
-.cta-speaker .pulse-ring.b3c{animation-delay:3.84s;}
+.cta-speaker .pulse-ring.b2a{animation-delay:0.48s;}
+.cta-speaker .pulse-ring.b2b{animation-delay:0.72s;}
+.cta-speaker .pulse-ring.b3a{animation-delay:0.96s;}
+.cta-speaker .pulse-ring.b3b{animation-delay:1.12s;}
+.cta-speaker .pulse-ring.b3c{animation-delay:1.28s;}
+/* Fixed ~200ms crisp attack per pulse (10.4% of the 1.92s bar), regardless
+   of how close together the beats are, so nothing overlaps into the next hit. */
 @keyframes ring-burst{
   0%{transform:scale(0.4);opacity:0.75;}
-  6.6%{transform:scale(1.5);opacity:0;}
+  10.4%{transform:scale(1.5);opacity:0;}
   100%{opacity:0;}
 }
-@keyframes speaker-thump{
-  0%{transform:scale(1.16);}
-  2%{transform:scale(1);}
-  16.18%{transform:scale(1);}
-  18.18%{transform:scale(1.16);}
-  20.18%{transform:scale(1);}
-  25.27%{transform:scale(1);}
-  27.27%{transform:scale(1.16);}
-  29.27%{transform:scale(1);}
-  52.55%{transform:scale(1);}
-  54.55%{transform:scale(1.16);}
-  56.55%{transform:scale(1);}
-  61.64%{transform:scale(1);}
-  63.64%{transform:scale(1.16);}
-  65.64%{transform:scale(1);}
-  70.73%{transform:scale(1);}
-  72.73%{transform:scale(1.16);}
-  74.73%{transform:scale(1);}
-  100%{transform:scale(1);}
+@keyframes heartbeat{
+  /* Beat 1 */
+  0%, 4%{transform:scale(1);}
+  6%, 10%{transform:scale(1.18);}
+  14%, 24%{transform:scale(1);}
+  /* Beat 2 (double, eighth notes) */
+  25%, 28%{transform:scale(1.16);}
+  30%, 34%{transform:scale(1);}
+  37%, 40%{transform:scale(1.13);}
+  43%, 52%{transform:scale(1);}
+  /* Beat 3 (triple, triplets) */
+  50%, 53%{transform:scale(1.15);}
+  55%, 58%{transform:scale(1);}
+  60%, 63%{transform:scale(1.12);}
+  65%, 68%{transform:scale(1);}
+  70%, 73%{transform:scale(1.10);}
+  75%, 100%{transform:scale(1);}
 }
 
 /* ===== Contact / Booking ===== */
