@@ -342,41 +342,30 @@ section{padding:130px 0;}
 .cta-band .btn-row{justify-content:center;position:relative;}
 
 /* ===== Pulsing speaker (CTA band accent) ===== */
-/* 125bpm, 4/4 bar = 1.92s. Beat 1: DO. Beat 2: DO-DO (8ths). Beat 3: DO-DO-DO
-   (triplets). Beat 4: rest. Thought in beats, not arbitrary percentages. */
+/* 125bpm, 4/4 bar = 1.92s. Steady do-do-do-do on beats 1-2-3-4, repeat. */
 .cta-speaker{position:relative;width:64px;height:64px;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;}
 .cta-speaker svg{width:30px;height:30px;color:var(--green);position:relative;z-index:2;animation:heartbeat 1.92s linear infinite;}
 .cta-speaker .pulse-ring{position:absolute;inset:0;border:2px solid var(--green);border-radius:50%;opacity:0;animation:ring-burst 1.92s ease-out infinite;}
 .cta-speaker .pulse-ring.b1{animation-delay:0s;}
-.cta-speaker .pulse-ring.b2a{animation-delay:0.48s;}
-.cta-speaker .pulse-ring.b2b{animation-delay:0.72s;}
-.cta-speaker .pulse-ring.b3a{animation-delay:0.96s;}
-.cta-speaker .pulse-ring.b3b{animation-delay:1.12s;}
-.cta-speaker .pulse-ring.b3c{animation-delay:1.28s;}
-/* Fixed ~200ms crisp attack per pulse (10.4% of the 1.92s bar), regardless
-   of how close together the beats are, so nothing overlaps into the next hit. */
+.cta-speaker .pulse-ring.b2{animation-delay:0.48s;}
+.cta-speaker .pulse-ring.b3{animation-delay:0.96s;}
+.cta-speaker .pulse-ring.b4{animation-delay:1.44s;}
+/* Fixed ~200ms crisp attack per pulse (10.4% of the 1.92s bar) so each
+   ring finishes well before the next beat (0.48s later) starts. */
 @keyframes ring-burst{
   0%{transform:scale(0.4);opacity:0.75;}
   10.4%{transform:scale(1.5);opacity:0;}
   100%{opacity:0;}
 }
 @keyframes heartbeat{
-  /* Beat 1 */
-  0%, 4%{transform:scale(1);}
-  6%, 10%{transform:scale(1.18);}
-  14%, 24%{transform:scale(1);}
-  /* Beat 2 (double, eighth notes) */
-  25%, 28%{transform:scale(1.16);}
-  30%, 34%{transform:scale(1);}
-  37%, 40%{transform:scale(1.13);}
-  43%, 52%{transform:scale(1);}
-  /* Beat 3 (triple, triplets) */
-  50%, 53%{transform:scale(1.15);}
-  55%, 58%{transform:scale(1);}
-  60%, 63%{transform:scale(1.12);}
-  65%, 68%{transform:scale(1);}
-  70%, 73%{transform:scale(1.10);}
-  75%, 100%{transform:scale(1);}
+  0%, 4%{transform:scale(1.18);}
+  10%, 21%{transform:scale(1);}
+  25%, 29%{transform:scale(1.18);}
+  35%, 46%{transform:scale(1);}
+  50%, 54%{transform:scale(1.18);}
+  60%, 71%{transform:scale(1);}
+  75%, 79%{transform:scale(1.18);}
+  85%, 100%{transform:scale(1);}
 }
 
 /* ===== Contact / Booking ===== */
