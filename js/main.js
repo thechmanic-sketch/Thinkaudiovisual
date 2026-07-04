@@ -1,3 +1,10 @@
+/* ---- Preloader: fade out once the page has fully loaded ---- */
+window.addEventListener('load', function(){
+  var preloader = document.getElementById('preloader');
+  if (!preloader) return;
+  setTimeout(function(){ preloader.classList.add('hidden'); }, 400);
+});
+
 document.addEventListener('DOMContentLoaded', function () {
 
   /* ---- Mobile nav ---- */
