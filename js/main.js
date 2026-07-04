@@ -175,24 +175,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    /* ---- Gradient tile ring: GSAP timeline instead of CSS keyframes ---- */
-    document.querySelectorAll('.tile-ring').forEach(function(ring){
-      var tiles = ring.querySelectorAll('.g-tile');
-      tiles.forEach(function(tile, i){
-        gsap.to(tile, {
-          x: (i % 2 === 0 ? 1 : -1) * (60 + i * 20),
-          y: (i % 3 === 0 ? -1 : 1) * (30 + i * 14),
-          rotate: (i % 2 === 0 ? 1 : -1) * 8,
-          duration: 5 + i, ease:'sine.inOut', yoyo:true, repeat:-1,
-          delay: i * 0.4
-        });
-      });
-      gsap.from(ring, {
-        opacity:0, scale:0.85, duration:1.2, ease:'power3.out',
-        scrollTrigger:{ trigger: ring, start:'top 85%' }
-      });
-    });
-
   } else {
     /* ---- Fallback: no GSAP loaded, just show content ---- */
     document.querySelectorAll('.reveal, .reveal-pop').forEach(function(el){
