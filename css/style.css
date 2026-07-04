@@ -246,7 +246,7 @@ section{padding:130px 0;}
   position:relative;overflow:hidden;
 }
 .card-img{
-  width:calc(100% + 64px);margin:-36px -32px 24px;
+  width:calc(100% + 64px);max-width:none;margin:-36px -32px 24px;
   height:220px;object-fit:cover;object-position:center;display:block;
 }
 .card::before{
