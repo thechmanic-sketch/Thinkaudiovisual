@@ -179,7 +179,7 @@ body,header,.card,.form-row input,.form-row select,.form-row textarea,.check-ite
 .hero-content{position:relative;z-index:2;max-width:1180px;width:100%;}
 .hero-split{display:grid;grid-template-columns:auto 1fr;gap:72px;align-items:center;}
 .hero-logo-wrap{display:flex;justify-content:flex-start;align-items:center;}
-.hero-logo{width:100%;max-width:420px;height:auto;object-fit:contain;background:#0B0B0C;border-radius:24px;padding:14px;}
+.hero-logo{width:100%;max-width:300px;height:auto;aspect-ratio:1/0.8;object-fit:contain;background:#0B0B0C;border-radius:24px;padding:14px;}
 .hero-text{display:flex;flex-direction:column;justify-content:center;max-width:560px;}
 
 .hero h1{font-size:clamp(2.6rem,6.6vw,5.4rem);margin-bottom:22px;}
