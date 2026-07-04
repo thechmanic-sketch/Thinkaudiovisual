@@ -167,14 +167,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
-    /* ---- Pin the stat strip briefly while counters resolve ---- */
-    var statStrip = document.querySelector('.stat-strip');
-    if (statStrip && window.innerWidth > 900) {
-      ScrollTrigger.create({
-        trigger: statStrip.closest('section'),
-        start:'top 20%', end:'+=200', pin:true, pinSpacing:true
-      });
-    }
 
     /* ---- Gradient tile ring: GSAP timeline instead of CSS keyframes ---- */
     document.querySelectorAll('.tile-ring').forEach(function(ring){
